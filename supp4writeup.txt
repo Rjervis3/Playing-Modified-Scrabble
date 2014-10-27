@@ -1,0 +1,215 @@
+﻿Michael Owusu
+Computer Science 161
+Professor Walker
+4/11/2014
+Supplemental Problem 4 Write-Up
+
+
+Testing:
+My testing was mostly comprised of white box testing. I would run my program and try and enter words that I knew did not belong. If my program allowed them to be run anyway, I could then theorize about why my code did that and then I could go adjust it.
+
+
+The errors that came up during this program were:
+1.Overwriting Words with other words that were not supposed to be placed there:
+To test this, I used various print statement to see exactly what was going on in my grid array vs. my word that I was trying to input. I could then augment how my main was calling my check_horizontal and check_vertical so that no overwriting occurred
+This particular issue encompassed almost all of my testing considering that the goal was to be able to print various words in an array given the various forms of entry and restrictions on which words can be entered where.
+
+
+2. Another issue I ran into was my check functions yielding an answer that said it was okay to print, even though it was not.
+        To test this, I once again inserted print statements. This time into the actual check functions so I could observe exactly where my word was overwriting my grid and why my check_functions allowed it.
+
+
+3. Sometimes when calling my check functions from main, my code would implement the answer from the check incorrectly causing overwriting.
+        To test this, I hand wrote the grid step by step following my code to see exactly where my numbers became off. These problems were often by a factor of 1 because of the conversion between a user entering 1 for a spot that the computer interprets as 0.
+
+
+Testing/Commentary on Correctness
+1. When I enter a word that fits vertically at a specific valid location, I would create a grid, by hand or mentally, of what I expected to happen. If it happened, I would then know that my code was working correctly. I repeated this test several times for certainty. This verified that my vertical_check function was working as well as its implementation.
+
+
+2. The same applies to horizontal input testing. I would input a word at a location that I know would be valid. I would then visualize the expected output. If they matched I knew that my code was working. I repeated this test several times for certainty. This verified that my horizontal_check function was working, as well as its implementation.
+
+
+3. I tried my random function several times to make sure it worked all the time. This was most difficult to test because it is based off my horizontal and vertical function. To test whether or not it was truly working, I would find the first available spot for my specific word and then run the procedure to see if the “random” component of my code would indeed put it in the correct spot. 
+
+
+Sample Output:
+The following sample output shows the correctness of my program by showing the terminal interaction and utilizing the main features of the program:
+
+
+Hello!
+Welcome to A Modified Game of Scrabble!
+
+
+
+
+Enter a number, R, for the number of rows on your Scrabble board.
+
+
+10
+
+
+Enter a number, C, for the number of columns on your Scrabble board.
+
+
+10
+
+
+
+
+Enter QUITQUIT into your grid as a word of the game to end program
+
+
+Enter your word of choice:
+
+
+Test
+
+
+
+
+Type 'H' to input a word horizontally at a specified location.
+Type 'V' to input a word vertically at a specified location.
+Type 'R' to input a word at a random location on the grid.
+
+
+
+
+Select Entry Type.
+
+
+V       
+
+
+Choose word location. Please enter a row number followed by a column number:
+
+
+1 1
+
+
+
+
+Valid Word!
+
+
+  T                           
+  e                           
+  s                           
+  t                           
+                              
+                              
+                              
+                              
+                              
+                              
+Enter your word of choice:
+
+
+Computer
+
+
+
+
+Type 'H' to input a word horizontally at a specified location.
+Type 'V' to input a word vertically at a specified location.
+Type 'R' to input a word at a random location on the grid.
+
+
+
+
+Select Entry Type.
+
+
+R
+
+
+Vertical Check: Invalid word!
+ Horizontal Check: Invalid word!
+ Valid Word!
+
+
+  T  C                        
+  e  o                        
+  s  m                        
+  t  p                        
+     u                        
+     t                        
+     e                        
+     r                        
+                              
+                              
+Enter your word of choice:
+
+
+ Science 
+
+
+
+
+Type 'H' to input a word horizontally at a specified location.
+Type 'V' to input a word vertically at a specified location.
+Type 'R' to input a word at a random location on the grid.
+
+
+
+
+Select Entry Type.
+
+
+H
+
+
+Choose word location. Please enter a row number followed by a column number:
+
+
+3 3
+
+
+
+
+Valid Word!
+
+
+  T  C                        
+  e  o                        
+  s  m  S  c  i  e  n  c  e   
+  t  p                        
+     u                        
+     t                        
+     e                        
+     r                        
+                              
+                              
+Enter your word of choice:
+
+
+QUITQUIT
+
+
+
+
+Type 'H' to input a word horizontally at a specified location.
+Type 'V' to input a word vertically at a specified location.
+Type 'R' to input a word at a random location on the grid.
+
+
+
+
+Select Entry Type.
+
+
+H   
+
+
+Choose word location. Please enter a row number followed by a column number:
+
+
+1 10
+
+
+
+
+Word is too long! Sorry! Invalid input. Please try again.
+
+
+End Program
